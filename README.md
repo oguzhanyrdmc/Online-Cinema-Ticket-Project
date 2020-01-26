@@ -1,5 +1,4 @@
-# dbms-term-project-fatma-kahraman-oguzhan-yardimci
-dbms-term-project-fatma-kahraman-oguzhan-yardimci created by GitHub Classroom
+#DEVELOPER TEAM
 
-2015510122 Fatma KAHRAMAN
-2015510066 Oğuzhan YARDIMCI
+Oğuzhan YARDIMCI
+Fatma KAHRAMAN
