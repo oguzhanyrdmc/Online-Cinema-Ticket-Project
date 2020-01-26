@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+</html>
+<head>
+    <title><%=title%></title>
+    <link href="/../css/general.css" rel="stylesheet"> 
+    <script type="text/javascript" src="/../buttonClick.js"></script>
+    <style type ="text/css">
+      body {
+    font-family: Verdana, monospace, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: justify;
+    min-height: 800px;
+    width: 600px;
+    height: 300px;
+    padding: 20px;
+    background-color: rgb(178, 182, 142);
+    position: relative;
+    margin: auto;
+}
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <SCRIPT LANGUAGE="JavaScript">
+        var message="   <%=title%>   ";
+        function ButtonURL(){
+        window.location="/"
+        }
+        function scroll()
+        {
+          message = message.substring(1,message.length) + message.substring(0,1);
+          document.bs.bs.value = message;
+          setTimeout("scroll()",140);
+        }
+        window.onload=scroll
+        document.write('<style>')
+        document.write('.select{background: rgb(178, 182, 142);font-family:Arial,Helvetica,Verdana;font-size:50pt;font-weight: bold;margin: 10px;}')
+        document.write('</STYLE>')
+        document.write('<form name=bs><INPUT class="select" TYPE="button" NAME="bs" value="" onclick="ButtonURL()"></FORM>')
+        </script>
+    </div>
+    <div>
+        <button type="button" onClick="movies()"> Movies List </button>    
+    </div>
+    <div>
+        <button type="button" onClick="groceries()">Groceries</button>                                      
+    </div>
+    <div>
+        <button type="button" onClick="movie_log_list()">Movie Log List</button>                                      
+    </div>
+
+    <div>
+         <h1>Total income : <%=data%>TL</h1>
+    </div>
+
+</body>
+</html>

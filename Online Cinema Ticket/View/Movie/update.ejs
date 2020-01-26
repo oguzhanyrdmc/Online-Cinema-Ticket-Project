@@ -1,0 +1,35 @@
+<%- include ../layouts/header.ejs %>
+<div class="page-data">
+    <form method="post" action="/admin/movies/update/<%=data[0].movie_id%>">
+        <table cellpadding="11">
+            <tr>
+                <td class="label">Movie Name</td>
+                <td><input type="text" name="moviename" value="<%=data[0].moviename%>" required /></td>
+            </tr>
+            <tr>
+                <td class="label">Movie Duration</td>
+                <td><input type="text" name="duration" value="<%=data[0].duration%>" required /></td>
+            </tr>
+            <tr>
+                <td class="label">Movie Points</td>
+                <td><input type="text" name="points" value="<%=data[0].points%>" required /></td>
+            </tr>
+            <tr>
+                <td class="label">Movie Type</td>
+                <td><input type="text" name="movietype" value="<%=data[0].movietype%>" required /></td>
+            </tr>
+            <tr>
+                <td class="label">Movie Description</td>
+                <td><textarea name="description" required cols="50" rows="8"><%=data[0].description%></textarea></td>             
+            </tr>
+            <tr>
+                <td class="label"></td>
+                <td>
+                    <button type="submit">Save</button>
+                    <button type="button" onClick="cancel()">Cancel</button>
+                </td>
+            </tr>
+        </table>
+    </form> 
+</div>
+<%- include ../layouts/footer.ejs %>

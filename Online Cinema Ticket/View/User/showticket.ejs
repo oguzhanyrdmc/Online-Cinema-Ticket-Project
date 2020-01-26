@@ -1,0 +1,85 @@
+<%- include ../layouts/header.ejs %>
+<div class="data-btn">
+    <div class="data-table">
+        <form method="post" action="/user<%=userID%>/buying<%=movie_id%>/<%=session%>/<%=seat%>">  
+                 
+            <% if(data.length){    
+            for(var i = 0;i < data.length;i++) { %>
+                <fieldset>
+                    <legend>Ticket <%=i+1%></legend>
+                    <table >       
+            <tr> 
+                <td> Name </td>                                 
+                <td> <%=data[i].first_name%> <%=data[i].last_name%></td>
+            </tr>
+            <tr> 
+                <td> Type </td>                                 
+                <td> <%=data[i].membertype%> </td>
+            </tr>
+            <tr> 
+                <td> Take Tickets Number </td>                                 
+                <td> <%=data[i].ticketcount%> </td>
+            </tr>
+            <tr> 
+                <td> Cinema Name </td>                                 
+                <td> <%=data[i].cinema_name%> </td>
+            </tr>
+            <tr> 
+                <td> Cinema City/Town </td>                                 
+                <td> <%=data[i].location_city%> / <%=data[i].location_town%></td>
+            </tr>
+            <tr> 
+                <td> Movie Name </td>                                 
+                <td> <%=data[i].moviename%> </td>
+            </tr>
+            <tr> 
+                <td> Saloon Name/Type </td>                                 
+                <td> <%=data[i].saloonname%> / <%=data[i].saloontype%></td>
+            </tr>
+            <tr> 
+                <td> Saloon Session / SeatName </td>                                 
+                <td> <%=data[i].saloonsession%> / <%=data[i].seatname%> </td>
+            </tr>
+            <tr> 
+                <td> Price </td>                                  
+                <td> <%=data[i].price%> </td>
+            </tr>
+            <tr> 
+                <td> 
+                    <% for(var j = 0;j < data2.length;j++) { %>
+                    <input type="checkbox" name="products" value="<%=data2[j].pprice%>" onclick="return ValidateSelection();"><%=data2[j].ptype%> <%=data2[j].pprice%>TL <br>                                  
+                    <% } %>
+                </td>                               
+            </tr>
+            </table>   
+            </fieldset>
+            <% }
+            }
+            else{ %>
+            <tr>
+                <td colspan="6">No seats</td>
+            </tr>
+            <% } %>
+             ONLY TİCKET Price:<input type="field" readonly name="onlyticket" value="<%=price%>" width=20 align="right"><br><br>
+             TOTAL Price:<input type="field" readonly name="total" value="<%=price%>" width=20 align="right">
+            <input id="btnn"  type="submit" value="Submit now">
+        </form> 
+        </div>
+        <script type="text/javascript">  
+        function ValidateSelection()  
+        {              
+            var checkboxes = document.getElementsByName("products");
+            var onlyticket = document.getElementsByName("onlyticket"); 
+            var sum = parseInt(onlyticket[0].value, 10)
+            
+            for(var i=0; checkboxes[i]; ++i){
+                if(checkboxes[i].checked){
+                    sum = sum + parseInt(checkboxes[i].value, 10);
+                }
+            }
+            document.getElementsByName("total")[0].value = sum;
+        }  
+        </script>
+</div>
+
+<%- include ../layouts/footer.ejs %>

@@ -1,0 +1,56 @@
+<%- include ../layouts/header.ejs %>
+<div class="page-data">
+    <form method="post" action="/register">
+        <table cellpadding="11">           
+            <tr>
+                <td class="label">Email</td>
+                <td><input type="text" name="email" required /></td>
+            </tr>
+            <tr>
+                <td class="label">Password</td>
+                <td><input type="password" name="mempassword" required /></td>                 
+            </tr>
+            <tr>
+                <td class="label">Name</td>
+                <td><input type="text" name="first_name" required /></td>
+            </tr>
+            <tr>
+                <td class="label">Surname</td>
+                <td><input type="text" name="last_name" required /></td>
+            </tr>
+            <tr>
+                <td class="label">Age</td>
+                <td><input type="text" name="Age" required /></td>             
+            </tr>
+            <tr> 
+                <td class="label">Gender</td>
+                <td >
+                    <select class="choosegender" data-style="btn-info" name="choosegender">
+                        <optgroup label="Select Gender">
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                        </optgroup>
+                    </select>
+            </td>
+            <tr>
+                <td class="label">Phone Number</td>
+                <td><input type="text" name="phonenumber" required /></td>
+            </tr>
+            
+            <tr>
+                <td class="label">Address</td>
+                <td><input type="text" name="address" required /></td>
+             
+            </tr>
+            <tr>
+                <td class="label"></td>
+                <td>
+                    <button type="submit">Save</button>
+                    <button type="button" onClick="cancelRegister()">Cancel</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<%- include ../layouts/footer.ejs %>

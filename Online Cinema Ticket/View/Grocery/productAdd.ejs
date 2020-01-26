@@ -1,0 +1,27 @@
+<%- include ../layouts/header.ejs %>
+<div class="page-data">
+    <form method="post" action="/admin/grocery/insert">
+        <table cellpadding="11">
+            <tr>
+                <td class="label">Product Type</td>
+                <td><input type="text" name="ptype" required /></td>
+            </tr>
+            <tr>
+                <td class="label">Product Price</td>
+                <td><input type="text" name="price" required ></textarea></td>
+            </tr>
+            <tr>
+                <td class="label">Stock</td>
+                <td><input type="text" name="stock" required /></td>
+            </tr>
+            <tr>
+                <td class="label"></td>
+                <td>
+                    <button type="submit">Save</button>
+                    <button type="button" onClick="PCancel()">Cancel</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<%- include ../layouts/footer.ejs %>

@@ -1,0 +1,45 @@
+<%- include ../layouts/header.ejs %>
+<div class="page-data">
+    <div class="data-btn">
+        <button onClick="insertMovie();">+ Insert +</button>
+    </div>
+    <div class="data-table">
+        <table>
+            <tr>
+                <th width="50px">ID</th>
+                <th>Movie Name</th>
+                <th>Duration</th>
+                <th>Points</th>
+                <th>Movie Type</th>
+                <th>Description</th>
+                <th width="120px">Action</th>
+            </tr>
+
+            <% if(data.length){
+
+            for(var i = 0;i < data.length;i++) { %>
+
+            <tr>
+                <td><%=data[i].movie_id%></td>
+                <td><%=data[i].moviename%></td>
+                <td><%=data[i].duration%></td>
+                <td><%=data[i].points%></td>
+                <td><%=data[i].movietype%></td>
+                <td><%=data[i].description%></td>
+                <td>
+                    <a href="../admin/movies/update/<%=data[i].movie_id%>"> Update </a>
+                    <a href="../admin/movies/delete/<%=data[i].movie_id%>"> Delete </a>
+                </td>
+            </tr>
+            <% }
+            }else{ %>
+            <tr>
+                <td colspan="6">No user</td>
+            </tr>
+            <% } %>
+        </table>
+        <button onClick="returnAdminPage();">RETURN MAIN PAGE</button>
+    </div>
+</div>
+
+<%- include ../layouts/footer.ejs %>

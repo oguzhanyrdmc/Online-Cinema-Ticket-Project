@@ -1,0 +1,63 @@
+<%- include ../layouts/header.ejs %>
+<div class="data-btn">
+    <div class="data-table">
+        <form method="post" action="/user<%=userID%>/buying<%=movie_id%>/<%=session%>">  
+        <table >            
+            <tr>
+               <th colspan="5">SCREEN</th>
+            </tr>
+            <% if(data.length){
+           
+            for(var i = 0;i < 6;i++) { %>
+            
+            <tr>                        
+                <% for(var j = 0;j < 5;j++) { %>
+                <td>                                         
+                    <%if(data[5*i+j].isfull == false){  %> 
+                        <input type="checkbox" name="seats" value="<%=data[5*i+j].seatname%>"  onclick="return ValidateSeatSelection();"><%=data[5*i+j].seatname%><br>                          
+                    <% }
+                    else if(data[5*i+j].isfull == true) { %>   
+                        <input type="checkbox" disabled name="seats" value="<%=data[5*i+j].seatname%>"  onclick="return ValidateSeatSelection();"><%=data[5*i+j].seatname%><br>                          
+                      
+                    <% } %>
+                </td>
+                <% } %>
+            </tr>
+            <% }
+            }
+            else{ %>
+            <tr>
+                <td colspan="6">No seats</td>
+            </tr>
+            <% } %>
+        </table>
+        <input id="btnn" disabled type="submit" value="Submit now">
+        </form> 
+    </div>
+    <script type="text/javascript">  
+        function ValidateSeatSelection()  
+        {  
+            var checkboxes = document.getElementsByName("seats");  
+            var numberOfCheckedItems = 0;  
+            for(var i = 0; i < checkboxes.length; i++)  
+            {  
+                if(checkboxes[i].checked)  
+                    numberOfCheckedItems++;  
+            }  
+            if(numberOfCheckedItems > 2)  
+            {  
+                alert("You can't select more than two seats!");  
+                return false;  
+            }
+            if(numberOfCheckedItems > 0){
+                document.getElementById("btnn").disabled = false;
+            }
+            if(numberOfCheckedItems < 1){
+                document.getElementById("btnn").disabled = true;               
+            }
+              
+        }  
+        </script>
+</div>
+
+<%- include ../layouts/footer.ejs %>

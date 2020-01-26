@@ -1,0 +1,14 @@
+<%- include ../layouts/header.ejs %>
+
+<form id="tableForm" action="/user<%=userID%>/buying<%=movie_id%>" method="post">
+    <select class="selectpicker" data-style="btn-info" name="selectpicker">
+        <optgroup label="Select Table">
+            <option value = "session" selected>Choose Session</option>
+            <option value="Morning">Morning</option>
+            <option value="Noon">Noon</option>
+            <option value="Evening">Evening</option>
+        </optgroup>
+    </select>
+    <button type="submit">Save</button>
+</form>
+<%- include ../layouts/footer.ejs %>
